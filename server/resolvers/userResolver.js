@@ -1,10 +1,10 @@
 import {users} from '../seeds/data.js'
 const userResolver = {
     Query: {
-        users: () => {
+        users: (_,_,{req,res}) => {
             return users
         },
-        user: (_, {userId}) => {
+        user: (_, {userId}, {req,res}) => {
             return users.find((user) => user._id === userId);
         }
     },
