@@ -1,8 +1,16 @@
+import {Route, Routes} from 'react-router-dom';
+
 function App() {
 
   return (
     <>
-      <h1>Hello</h1>
+      <Routes>
+        {/* <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} /> */}
+        <Route path='/signup' element={<SignUpPage />} />
+        {/* <Route path='/transaction:id' element={<TransactionPage />} />
+        <Route path='*' element={<NotFound />} /> */}
+      </Routes>
     </>
   )
 }
