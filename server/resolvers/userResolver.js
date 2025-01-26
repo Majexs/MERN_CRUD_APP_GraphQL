@@ -1,4 +1,3 @@
-import {users} from '../seeds/data.js';
 import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 
@@ -69,8 +68,14 @@ const userResolver = {
                 throw new Error(err.message || "Internal server error");
             }
         },
-        users: (_,{req,res}) => {
-            return users
+        users: async () => {
+            try {
+                const users = await User.find()
+                return users;
+            } catch(err) {
+                console.error("Error getting users", err);
+                throw new Error(err.message || "Error getting users");
+            }
         },
         user: async (_,{userId}) => {
             try {
